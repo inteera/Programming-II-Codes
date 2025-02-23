@@ -1,7 +1,5 @@
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main extends javax.swing.JFrame {
 
@@ -89,25 +87,38 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void calculateSubnets(){
+        String ip = txt_IP.getText();
+        String mask = txt_SubnetMask.getText();
+        int subnetCount;
         // 192.168.1.0          11000000.10101000.00000001.00000000
         // 255.255.255.0        11111111.11111111.11111111.00000000
         //4
-        int[][] ip = toBinary(txt_IP.getText());
-        System.out.println("Ip: " + ip);
+        try{
+           int ipInt = toInt(ip);
+        System.out.println("Ip: " + ipInt); 
+        }
+        catch(Exception e){
+            
+        }
+        
     }
     
-    private int[][] toBinary(String n){
-        int num = Integer.parseInt(n);
-        int[][] binary = new int[4][35];
-        int id = 0;
-        for(int i = 0; i < 4; i++){
-            while (num > 0) {
-            binary[i][id++] = num % 2;
-            num = num / 2;
-            }
-        }
-        return binary;
+    private int toInt(String ip) throws UnknownHostException{
+        InetAddress inet = InetAddress.getByName(ip);
+        
+        byte[] bytes = inet.getAddress();
+        return ((bytes[0] & 0xFF) << 24) | ((bytes[1] & 0xFF) << 16) |
+               ((bytes[2] & 0xFF) << 8) | (bytes[3] & 0xFF);
     }
+    
+    private String toIp(int ip) {
+        return ((ip >> 24) & 0xFF) + "." + ((ip >> 16) & 0xFF) + "." +
+               ((ip >> 8) & 0xFF) + "." + (ip & 0xFF);
+    }
+
+
+    
+    //TODO: Display how many hosts are there for a network
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
