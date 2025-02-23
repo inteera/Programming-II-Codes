@@ -1,4 +1,3 @@
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Main extends javax.swing.JFrame {
@@ -89,24 +88,30 @@ public class Main extends javax.swing.JFrame {
     private void calculateSubnets(){
         String ip = txt_IP.getText();
         String mask = txt_SubnetMask.getText();
+        int ipInt;
+        int maskInt;
         int subnetCount;
         // 192.168.1.0          11000000.10101000.00000001.00000000
         // 255.255.255.0        11111111.11111111.11111111.00000000
         //4
         try{
-           int ipInt = toInt(ip);
-        System.out.println("Ip: " + ipInt); 
+           ipInt = toInt(ip);
+           maskInt = toInt(mask);
         }
         catch(Exception e){
-            
+            System.out.println("Error: " + e.getMessage());
         }
         
     }
     
     private int toInt(String ip) throws UnknownHostException{
-        InetAddress inet = InetAddress.getByName(ip);
+        String[] ipList = ip.split("\\.");
+        byte[] bytes = new byte[4];
         
-        byte[] bytes = inet.getAddress();
+        for(int i = 0; i < 4; i++){
+            bytes[i] = (byte) Integer.parseInt(ipList[i]);
+        }
+        
         return ((bytes[0] & 0xFF) << 24) | ((bytes[1] & 0xFF) << 16) |
                ((bytes[2] & 0xFF) << 8) | (bytes[3] & 0xFF);
     }
@@ -117,7 +122,6 @@ public class Main extends javax.swing.JFrame {
     }
 
 
-    
     //TODO: Display how many hosts are there for a network
 
 
