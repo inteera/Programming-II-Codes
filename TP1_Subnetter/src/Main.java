@@ -1,4 +1,4 @@
-import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 public class Main extends javax.swing.JFrame {
 
@@ -88,23 +88,43 @@ public class Main extends javax.swing.JFrame {
     private void calculateSubnets(){
         String ip = txt_IP.getText();
         String mask = txt_SubnetMask.getText();
-        int ipInt;
-        int maskInt;
-        int subnetCount;
+        int subnetCount = Integer.parseInt(txt_TotalSubnets.getText());
+        int requiredBits = (int)Math.ceil(Math.log(Integer.parseInt(txt_TotalSubnets.getText())) / Math.log(2));
         // 192.168.1.0          11000000.10101000.00000001.00000000
         // 255.255.255.0        11111111.11111111.11111111.00000000
-        //4
-        try{
-           ipInt = toInt(ip);
-           maskInt = toInt(mask);
+        // 255.255.255.192      11111111.11111111.11111111.11000000
+        
+        
+        int ipInt = toInt(ip);
+        int maskInt = toInt(mask);
+        int newSubnetMask = maskInt >> requiredBits;
+        
+        int interval = ~newSubnetMask + 1;
+        System.out.println(interval);
+        
+        ArrayList<IpAddress> ipAddresses = new ArrayList<IpAddress>();
+        for(int i = 0; i < subnetCount; i++){
+            ipAddresses.add(new IpAddress(ipInt, newSubnetMask));
+            ipInt += interval;
         }
-        catch(Exception e){
-            System.out.println("Error: " + e.getMessage());
+        ipInt -= interval;
+        
+        for(int i = 0; i < ipAddresses.size(); i++){
+            System.out.println(
+            "Subnet: " + (i + 1) +
+             "\nIp: " + toIp(ipAddresses.get(i).getIpAddress()) + " | " +
+             "Last usable ip: " + toIp(ipAddresses.get(i).getLastUsableAddress()) + " | " +
+             "Subnet Mask: " + toIp(ipAddresses.get(i).getSubnetMask())
+            );
         }
+        
+        
+        System.out.println(toIp(ipInt));
+        System.out.println(toIp(newSubnetMask));
         
     }
     
-    private int toInt(String ip) throws UnknownHostException{
+    private int toInt(String ip){
         String[] ipList = ip.split("\\.");
         byte[] bytes = new byte[4];
         
