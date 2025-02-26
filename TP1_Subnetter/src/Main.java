@@ -86,18 +86,25 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void calculateSubnets(){
+        txt_Display.setText("");
         String ip = txt_IP.getText();
         String mask = txt_SubnetMask.getText();
+        
         int subnetCount = Integer.parseInt(txt_TotalSubnets.getText());
         int requiredBits = (int)Math.ceil(Math.log(Integer.parseInt(txt_TotalSubnets.getText())) / Math.log(2));
-        // 192.168.1.0          11000000.10101000.00000001.00000000
-        // 255.255.255.0        11111111.11111111.11111111.00000000
-        // 255.255.255.192      11111111.11111111.11111111.11000000
-        
         
         int ipInt = toInt(ip);
         int maskInt = toInt(mask);
+        int zerosInMask = 32 - Integer.bitCount(maskInt);
+        
         int newSubnetMask = maskInt >> requiredBits;
+        
+        if(zerosInMask < requiredBits){
+            txt_Display.setText("Invalid subnet count for the network.");
+            return;
+        }
+        
+        
         
         int interval = ~newSubnetMask + 1;
         System.out.println(interval);
@@ -110,17 +117,13 @@ public class Main extends javax.swing.JFrame {
         ipInt -= interval;
         
         for(int i = 0; i < ipAddresses.size(); i++){
-            System.out.println(
-            "Subnet: " + (i + 1) +
-             "\nIp: " + toIp(ipAddresses.get(i).getIpAddress()) + " | " +
-             "Last usable ip: " + toIp(ipAddresses.get(i).getLastUsableAddress()) + " | " +
-             "Subnet Mask: " + toIp(ipAddresses.get(i).getSubnetMask())
-            );
+            txt_Display.setText(txt_Display.getText() + ("Subnet: " + (i + 1) + " - " +
+             "Ip: " + toIp(ipAddresses.get(i).getIpAddress()) + " | " +
+             "Broadcast ip: " + toIp(ipAddresses.get(i).getBroadcastAddress()) + " | " +
+             "Subnet Mask: " + toIp(ipAddresses.get(i).getSubnetMask()) + "\n"));
+            
+            
         }
-        
-        
-        System.out.println(toIp(ipInt));
-        System.out.println(toIp(newSubnetMask));
         
     }
     
