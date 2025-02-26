@@ -16,6 +16,10 @@ public class Main extends javax.swing.JFrame {
         btn_Calculate = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_Display = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -32,6 +36,15 @@ public class Main extends javax.swing.JFrame {
         txt_Display.setRows(5);
         jScrollPane1.setViewportView(txt_Display);
 
+        jLabel1.setText("Ip Address:");
+
+        jLabel2.setText("Subnet Mask:");
+
+        jLabel3.setText("How many networks you want to create:");
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
+        jLabel4.setText("Subnet Calculator for a Network");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -40,32 +53,46 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txt_IP, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(txt_SubnetMask, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(txt_TotalSubnets, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_IP, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(102, 102, 102)
+                                .addComponent(jLabel2)
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_Calculate)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_SubnetMask, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(44, 44, 44)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_TotalSubnets, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(btn_Calculate)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                        .addGap(224, 224, 224)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(txt_IP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addComponent(txt_SubnetMask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
                     .addComponent(txt_TotalSubnets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(107, 107, 107)
                 .addComponent(btn_Calculate)
-                .addGap(170, 170, 170)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -75,11 +102,7 @@ public class Main extends javax.swing.JFrame {
         calculateSubnets();
     }//GEN-LAST:event_btn_CalculateActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        
         java.awt.EventQueue.invokeLater(() -> {
             new Main().setVisible(true);
         });
@@ -87,42 +110,60 @@ public class Main extends javax.swing.JFrame {
     
     private void calculateSubnets(){
         txt_Display.setText("");
-        String ip = txt_IP.getText();
-        String mask = txt_SubnetMask.getText();
         
-        int subnetCount = Integer.parseInt(txt_TotalSubnets.getText());
-        int requiredBits = (int)Math.ceil(Math.log(Integer.parseInt(txt_TotalSubnets.getText())) / Math.log(2));
-        
-        int ipInt = toInt(ip);
-        int maskInt = toInt(mask);
-        int zerosInMask = 32 - Integer.bitCount(maskInt);
-        
-        int newSubnetMask = maskInt >> requiredBits;
-        
-        if(zerosInMask < requiredBits){
-            txt_Display.setText("Invalid subnet count for the network.");
+        if(txt_IP.getText().equals("") || txt_SubnetMask.getText().equals("") || txt_TotalSubnets.getText().equals("")){
+            txt_Display.setText("The values cannot be empty.");
             return;
         }
         
+        //TODO: Check if the subnet mask bits are side to side
         
+        try{
+            String ip = txt_IP.getText();
+            String mask = txt_SubnetMask.getText();
+            int subnetCount = Integer.parseInt(txt_TotalSubnets.getText());
+            
+            if(!checkRange(ip) || !checkRange(mask)){
+                txt_Display.setText("Make sure that your entered values are suitable.");
+                return;
+            }
+            
+            int requiredBits = (int)Math.ceil(Math.log(Integer.parseInt(txt_TotalSubnets.getText())) / Math.log(2));
         
-        int interval = ~newSubnetMask + 1;
-        System.out.println(interval);
+            int ipInt = toInt(ip);
+            int maskInt = toInt(mask);
+            
+            int zerosInMask = 32 - Integer.bitCount(maskInt);
         
-        ArrayList<IpAddress> ipAddresses = new ArrayList<IpAddress>();
-        for(int i = 0; i < subnetCount; i++){
-            ipAddresses.add(new IpAddress(ipInt, newSubnetMask));
-            ipInt += interval;
+            int newSubnetMask = maskInt >> requiredBits;
+
+            if(zerosInMask < requiredBits){
+                txt_Display.setText("Invalid subnet count for the network.");
+                return;
+            }
+            int interval = ~newSubnetMask + 1;
+        
+            ArrayList<IpAddress> ipAddresses = new ArrayList<IpAddress>();
+            for(int i = 0; i < subnetCount; i++){
+                ipAddresses.add(new IpAddress(ipInt, newSubnetMask));
+                ipInt += interval;
+            }
+            ipInt -= interval;
+
+            for(int i = 0; i < ipAddresses.size(); i++){
+                txt_Display.setText(txt_Display.getText() + ("Subnet: " + (i + 1) + " - " +
+                 "Ip: " + toIp(ipAddresses.get(i).getIpAddress()) + " | " +
+                 "Broadcast ip: " + toIp(ipAddresses.get(i).getBroadcastAddress()) + " | " +
+                 "Subnet Mask: " + toIp(ipAddresses.get(i).getSubnetMask()) + " | " +
+                 "Host Count: " + ipAddresses.get(i).getHostCount() + "\n"));
+
+            }
         }
-        ipInt -= interval;
-        
-        for(int i = 0; i < ipAddresses.size(); i++){
-            txt_Display.setText(txt_Display.getText() + ("Subnet: " + (i + 1) + " - " +
-             "Ip: " + toIp(ipAddresses.get(i).getIpAddress()) + " | " +
-             "Broadcast ip: " + toIp(ipAddresses.get(i).getBroadcastAddress()) + " | " +
-             "Subnet Mask: " + toIp(ipAddresses.get(i).getSubnetMask()) + "\n"));
-            
-            
+        catch(ArrayIndexOutOfBoundsException e){
+            txt_Display.setText("The values should be complete");
+        }
+        catch(NumberFormatException e){
+            txt_Display.setText("Make sure that your entered values are suitable.");
         }
         
     }
@@ -136,20 +177,33 @@ public class Main extends javax.swing.JFrame {
         }
         
         return ((bytes[0] & 0xFF) << 24) | ((bytes[1] & 0xFF) << 16) |
-               ((bytes[2] & 0xFF) << 8) | (bytes[3] & 0xFF);
+               ((bytes[2] & 0xFF) << 8) | bytes[3] & 0xFF;
     }
     
     private String toIp(int ip) {
         return ((ip >> 24) & 0xFF) + "." + ((ip >> 16) & 0xFF) + "." +
                ((ip >> 8) & 0xFF) + "." + (ip & 0xFF);
     }
-
-
-    //TODO: Display how many hosts are there for a network
+    
+    private boolean checkRange(String ip){
+        String[] list = ip.split("\\.");
+        
+        for(String element : list){
+            if(Integer.parseInt(element) < 0 || Integer.parseInt(element) > 255){
+                return false;
+            }
+        }
+        
+        return true;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Calculate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txt_Display;
     private javax.swing.JTextField txt_IP;

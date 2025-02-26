@@ -1,16 +1,16 @@
 
-
-
 public class IpAddress {
-    private int ipAddress;
-    private int firstUsableAddress;
-    private int lastUsableAddress;
-    private int broadcastAddress;
-    private int subnetMask;
+    final private int ipAddress;
+    final private int firstUsableAddress;
+    final private int lastUsableAddress;
+    final private int broadcastAddress;
+    final private int subnetMask;
+    final private int hostCount;
     
     public IpAddress(int ipAddress, int subnetMask){
         this.ipAddress = ipAddress;
         this.subnetMask = subnetMask;
+        this.hostCount = ~subnetMask - 1;
         
         int interval = ~subnetMask + 1;
         
@@ -23,39 +23,24 @@ public class IpAddress {
         return ipAddress;
     }
 
-    public void setIpAddress(int ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
     public int getFirstUsableAddress() {
         return firstUsableAddress;
-    }
-
-    public void setFirstUsableAddress(int firstUsableAddress) {
-        this.firstUsableAddress = firstUsableAddress;
     }
 
     public int getLastUsableAddress() {
         return lastUsableAddress;
     }
 
-    public void setLastUsableAddress(int lastUsableAddress) {
-        this.lastUsableAddress = lastUsableAddress;
-    }
-
     public int getBroadcastAddress() {
         return broadcastAddress;
-    }
-    public void setBroadcastAddress(int broadcastAddress) {
-        this.broadcastAddress = broadcastAddress;
     }
 
     public int getSubnetMask() {
         return subnetMask;
     }
-
-    public void setSubnetMask(int subnetMask) {
-        this.subnetMask = subnetMask;
+    
+    public int getHostCount() {
+        return hostCount;
     }
     
 }
