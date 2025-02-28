@@ -50,37 +50,38 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_IP, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel2)
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(txt_SubnetMask, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_IP, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(102, 102, 102)
-                                .addComponent(jLabel2)
-                                .addGap(3, 3, 3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn_Calculate)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txt_SubnetMask, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txt_TotalSubnets, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_TotalSubnets, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(btn_Calculate)))))
                 .addContainerGap(56, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(208, 208, 208))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_IP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,19 +137,19 @@ public class Main extends javax.swing.JFrame {
             int zerosInMask = 32 - Integer.bitCount(maskInt);
         
             int newSubnetMask = maskInt >> requiredBits;
-
-            if(zerosInMask < requiredBits){
+            
+            if(zerosInMask - 1 <= requiredBits){
                 txt_Display.setText("Invalid subnet count for the network.");
                 return;
             }
             int interval = ~newSubnetMask + 1;
-        
-            ArrayList<IpAddress> ipAddresses = new ArrayList<IpAddress>();
+            
+            ArrayList<IpAddress> ipAddresses = new ArrayList<>();
             for(int i = 0; i < subnetCount; i++){
                 ipAddresses.add(new IpAddress(ipInt, newSubnetMask));
                 ipInt += interval;
             }
-            ipInt -= interval;
+            //ipInt -= interval;
 
             for(int i = 0; i < ipAddresses.size(); i++){
                 txt_Display.setText(txt_Display.getText() + ("Subnet: " + (i + 1) + " - " +
@@ -176,8 +177,8 @@ public class Main extends javax.swing.JFrame {
             bytes[i] = (byte) Integer.parseInt(ipList[i]);
         }
         
-        return ((bytes[0] & 0xFF) << 24) | ((bytes[1] & 0xFF) << 16) |
-               ((bytes[2] & 0xFF) << 8) | bytes[3] & 0xFF;
+        return ((bytes[0]) << 24) | ((bytes[1]) << 16) |
+               ((bytes[2]) << 8) | bytes[3];
     }
     
     private String toIp(int ip) {
@@ -187,14 +188,15 @@ public class Main extends javax.swing.JFrame {
     
     private boolean checkRange(String ip){
         String[] list = ip.split("\\.");
+        boolean bool = true;
         
         for(String element : list){
             if(Integer.parseInt(element) < 0 || Integer.parseInt(element) > 255){
-                return false;
+                bool = false;
             }
         }
         
-        return true;
+        return bool;
     }
 
 
