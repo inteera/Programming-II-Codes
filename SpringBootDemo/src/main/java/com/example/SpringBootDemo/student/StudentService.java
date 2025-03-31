@@ -11,7 +11,7 @@ public class StudentService {
     private final StudentRepository studentRepository;
     
     @Autowired
-    public StudentService(com.example.SpringBootDemo.student.StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
     
