@@ -13,11 +13,11 @@ public class LinearEquation {
     public LinearEquation(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) {
         a = y1 - y2;
         b = x2 - x1;
-        e = a * x1 + b * y1;
+        e = a*x1 + b*y1;
 
         c = y3 - y4;
         d = x4 - x3;
-        f = c * x3 + d * y3;
+        f = c*x3 + d*y3;
     }
 
     public boolean isSolvable(){
@@ -31,14 +31,14 @@ public class LinearEquation {
         if(!isSolvable()){
             return "The equation has no solution.";
         }
-        return "x is: " + (e*d-b*f)/(a*d-b*c);
+        return "x is: " + (e*d - b*f)/(a*d - b*c);
     }
 
     public String getY(){
         if(!isSolvable()){
             return "The equation has no solution.";
         }
-        return "y is: " + (a*f-e*c)/(a*d-b*c);
+        return "y is: " + (a*f - e*c)/(a*d - b*c);
     }
 
     public double getA() {
