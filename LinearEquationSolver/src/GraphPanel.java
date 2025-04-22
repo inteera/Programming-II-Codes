@@ -63,7 +63,6 @@ public class GraphPanel extends JPanel {
         minY -= paddingY;
         maxY += paddingY;
 
-
         int width = getWidth();
         int height = getHeight();
 
@@ -103,7 +102,6 @@ public class GraphPanel extends JPanel {
             g2.drawString(String.format("(%.2f, %.2f)", ix, iy), p.x + 8, p.y - 8);
         }
     }
-
     
     private void drawExtendedLine(Graphics2D g2, double x1, double y1, double x2, double y2,
                                   double scale, double offsetX, double offsetY, Color color) {
@@ -128,6 +126,4 @@ public class GraphPanel extends JPanel {
             g2.drawLine(sx, sy, ex, ey);
         }
     }
-
-
 }
