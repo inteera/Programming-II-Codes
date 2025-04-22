@@ -1,32 +1,19 @@
 public class Main extends javax.swing.JFrame {
+    private GraphPanel graphPanel;
 
     public Main() {
         initComponents();
+        graphPanel = new GraphPanel();
+        graphPanel.setPreferredSize(new java.awt.Dimension(400, 400));
+        graphContainerPanel.setLayout(new java.awt.BorderLayout());
+        graphContainerPanel.add(graphPanel);
+
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_e1x1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txt_e1y1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txt_e1r1 = new javax.swing.JTextField();
-        txt_e1x2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txt_e1y2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txt_e1r2 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        btn_calculate1 = new javax.swing.JButton();
-        txt_result1x = new javax.swing.JLabel();
-        txt_result1y = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -46,57 +33,9 @@ public class Main extends javax.swing.JFrame {
         btn_calculate2 = new javax.swing.JButton();
         txt_result2x = new javax.swing.JLabel();
         txt_result2y = new javax.swing.JLabel();
+        graphContainerPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        txt_e1x1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_e1x1.setText("0.0");
-
-        jLabel1.setText("x");
-
-        jLabel2.setText("+");
-
-        txt_e1y1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_e1y1.setText("0.0");
-
-        jLabel3.setText("y");
-
-        jLabel4.setText("=");
-
-        txt_e1r1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_e1r1.setText("0.0");
-
-        txt_e1x2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_e1x2.setText("0.0");
-
-        jLabel5.setText("x");
-
-        jLabel6.setText("+");
-
-        txt_e1y2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_e1y2.setText("0.0");
-
-        jLabel7.setText("y");
-
-        jLabel8.setText("=");
-
-        txt_e1r2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_e1r2.setText("0.0");
-
-        jLabel9.setText("1st equation: ");
-
-        jLabel10.setText("2nd equation: ");
-
-        btn_calculate1.setText("Calculate");
-        btn_calculate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_calculate1ActionPerformed(evt);
-            }
-        });
-
-        txt_result1x.setText("0.0");
-
-        txt_result1y.setText("0.0");
 
         jLabel11.setText("x1 : ");
 
@@ -141,6 +80,19 @@ public class Main extends javax.swing.JFrame {
 
         txt_result2y.setText("0.0");
 
+        graphContainerPanel.setPreferredSize(new java.awt.Dimension(400, 400));
+
+        javax.swing.GroupLayout graphContainerPanelLayout = new javax.swing.GroupLayout(graphContainerPanel);
+        graphContainerPanel.setLayout(graphContainerPanelLayout);
+        graphContainerPanelLayout.setHorizontalGroup(
+            graphContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        graphContainerPanelLayout.setVerticalGroup(
+            graphContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,47 +100,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txt_e1x1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_e1y1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_e1r1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btn_calculate1)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(txt_e1x2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel5)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel6)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txt_e1y2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_e1r2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(72, 72, 72)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,49 +142,22 @@ public class Main extends javax.swing.JFrame {
                                                 .addComponent(txt_e2y4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(btn_calculate2)
-                                        .addGap(56, 56, 56)))
-                                .addGap(68, 68, 68))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(txt_result1x)
-                        .addGap(134, 134, 134)
-                        .addComponent(txt_result1y))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(txt_result2x)
-                        .addGap(104, 104, 104)
-                        .addComponent(txt_result2y)))
-                .addContainerGap(189, Short.MAX_VALUE))
+                                        .addGap(56, 56, 56))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txt_result2y)
+                                    .addComponent(txt_result2x))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addComponent(graphContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_e1x1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_e1y1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(txt_e1r1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_e1x2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_e1y2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_e1r2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_calculate1)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_result1x)
-                    .addComponent(txt_result1y))
-                .addGap(82, 82, 82)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel15)
@@ -297,25 +184,32 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_calculate2)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_result2x)
-                    .addComponent(txt_result2y))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addComponent(txt_result2x)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_result2y)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(graphContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_calculate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calculate1ActionPerformed
-        LinearEquation linearEquation = new LinearEquation(Double.parseDouble(txt_e1x1.getText()), Double.parseDouble(txt_e1y1.getText()), Double.parseDouble(txt_e1x2.getText()), Double.parseDouble(txt_e1y2.getText()), Double.parseDouble(txt_e1r1.getText()), Double.parseDouble(txt_e1r2.getText()));
-        txt_result1x.setText(linearEquation.getX());
-        txt_result1y.setText(linearEquation.getY());
-    }//GEN-LAST:event_btn_calculate1ActionPerformed
-
     private void btn_calculate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calculate2ActionPerformed
-        LinearEquation linearEquation = new LinearEquation(Double.parseDouble(txt_e2x1.getText()), Double.parseDouble(txt_e2y1.getText()), Double.parseDouble(txt_e2x2.getText()), Double.parseDouble(txt_e2y2.getText()), Double.parseDouble(txt_e2x3.getText()), Double.parseDouble(txt_e2y3.getText()), Double.parseDouble(txt_e2x4.getText()), Double.parseDouble(txt_e2y4.getText()));
-        txt_result2x.setText(linearEquation.getX());
-        txt_result2y.setText(linearEquation.getY());
+    double x1 = Double.parseDouble(txt_e2x1.getText());
+    double y1 = Double.parseDouble(txt_e2y1.getText());
+    double x2 = Double.parseDouble(txt_e2x2.getText());
+    double y2 = Double.parseDouble(txt_e2y2.getText());
+    double x3 = Double.parseDouble(txt_e2x3.getText());
+    double y3 = Double.parseDouble(txt_e2y3.getText());
+    double x4 = Double.parseDouble(txt_e2x4.getText());
+    double y4 = Double.parseDouble(txt_e2y4.getText());
+
+    LinearEquation linearEquation = new LinearEquation(x1, y1, x2, y2, x3, y3, x4, y4);
+    txt_result2x.setText(linearEquation.getX());
+    txt_result2y.setText(linearEquation.getY());
+
+    graphPanel.setPoints(x1, y1, x2, y2, x3, y3, x4, y4);
     }//GEN-LAST:event_btn_calculate2ActionPerformed
 
     public static void main(String args[]) {
@@ -328,10 +222,8 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_calculate1;
     private javax.swing.JButton btn_calculate2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JPanel graphContainerPanel;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -340,20 +232,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txt_e1r1;
-    private javax.swing.JTextField txt_e1r2;
-    private javax.swing.JTextField txt_e1x1;
-    private javax.swing.JTextField txt_e1x2;
-    private javax.swing.JTextField txt_e1y1;
-    private javax.swing.JTextField txt_e1y2;
     private javax.swing.JTextField txt_e2x1;
     private javax.swing.JTextField txt_e2x2;
     private javax.swing.JTextField txt_e2x3;
@@ -362,8 +240,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txt_e2y2;
     private javax.swing.JTextField txt_e2y3;
     private javax.swing.JTextField txt_e2y4;
-    private javax.swing.JLabel txt_result1x;
-    private javax.swing.JLabel txt_result1y;
     private javax.swing.JLabel txt_result2x;
     private javax.swing.JLabel txt_result2y;
     // End of variables declaration//GEN-END:variables
