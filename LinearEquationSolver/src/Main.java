@@ -1,5 +1,5 @@
 public class Main extends javax.swing.JFrame {
-    private GraphPanel graphPanel;
+    private final GraphPanel graphPanel;
 
     public Main() {
         initComponents();
