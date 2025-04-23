@@ -33,53 +33,53 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_x1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_e2x1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="txt_x1" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_x4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_e2x4" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="txt_x4" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbl_x3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbl_x2" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txt_e2x2" min="-2" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="txt_e2x3" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="txt_x2" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="txt_x3" min="-2" pref="50" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_y4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_e2y2" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="txt_y2" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_y3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_e2y3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="txt_y3" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_y1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_e2y1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="txt_y1" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_y2" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_e2y4" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="txt_y4" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="btn_calculate2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_calculate" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -87,8 +87,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txt_result2y" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_result2x" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_resultY" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_resultX" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -108,38 +108,38 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace pref="13" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2x1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2y1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_x1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_y1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_x1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_y1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txt_e2x2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2y2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_x2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_x2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_y4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_y2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2x3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2y3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_x3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_y3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_x3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_y3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2x4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_e2y4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_x4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_y2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_x4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_y4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btn_calculate2" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_calculate" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txt_result2x" min="-2" max="-2" attributes="0"/>
+              <Component id="txt_resultX" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txt_result2y" min="-2" max="-2" attributes="0"/>
+              <Component id="txt_resultY" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="graphContainerPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -148,100 +148,100 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="lbl_x1">
       <Properties>
         <Property name="text" type="java.lang.String" value="x1 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="lbl_x2">
       <Properties>
         <Property name="text" type="java.lang.String" value="x2 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="lbl_x3">
       <Properties>
         <Property name="text" type="java.lang.String" value="x3 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel14">
+    <Component class="javax.swing.JLabel" name="lbl_x4">
       <Properties>
         <Property name="text" type="java.lang.String" value="x4 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel15">
+    <Component class="javax.swing.JLabel" name="lbl_y1">
       <Properties>
         <Property name="text" type="java.lang.String" value="y1 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel16">
+    <Component class="javax.swing.JLabel" name="lbl_y2">
       <Properties>
         <Property name="text" type="java.lang.String" value="y4 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel17">
+    <Component class="javax.swing.JLabel" name="lbl_y3">
       <Properties>
         <Property name="text" type="java.lang.String" value="y3 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel18">
+    <Component class="javax.swing.JLabel" name="lbl_y4">
       <Properties>
         <Property name="text" type="java.lang.String" value="y2 : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2x2">
+    <Component class="javax.swing.JTextField" name="txt_x2">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2x3">
+    <Component class="javax.swing.JTextField" name="txt_x3">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2x1">
+    <Component class="javax.swing.JTextField" name="txt_x1">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2x4">
+    <Component class="javax.swing.JTextField" name="txt_x4">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2y2">
+    <Component class="javax.swing.JTextField" name="txt_y2">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2y1">
+    <Component class="javax.swing.JTextField" name="txt_y1">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2y3">
+    <Component class="javax.swing.JTextField" name="txt_y3">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_e2y4">
+    <Component class="javax.swing.JTextField" name="txt_y4">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_calculate2">
+    <Component class="javax.swing.JButton" name="btn_calculate">
       <Properties>
         <Property name="text" type="java.lang.String" value="Calculate"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_calculate2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_calculateActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txt_result2x">
+    <Component class="javax.swing.JLabel" name="txt_resultX">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="txt_result2y">
+    <Component class="javax.swing.JLabel" name="txt_resultY">
       <Properties>
         <Property name="text" type="java.lang.String" value="0.0"/>
       </Properties>
