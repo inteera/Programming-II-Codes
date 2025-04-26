@@ -21,7 +21,7 @@ public class LinearEquation {
     }
 
     public boolean isSolvable(){
-        if(a*d - b*c == 0){
+        if(Math.abs(a*d - b*c) < 0.0000001){
             return false;
         }
         return true;
