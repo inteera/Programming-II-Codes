@@ -20,7 +20,6 @@ public class GraphPanel extends JPanel {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        // Add intersection point if exists
         LinearEquation eq = new LinearEquation(x1, y1, x2, y2, x3, y3, x4, y4);
         boolean hasIntersection = false;
         double ix = 0, iy = 0;
@@ -30,7 +29,6 @@ public class GraphPanel extends JPanel {
             iy = (eq.getA() * eq.getF() - eq.getE() * eq.getC()) / (eq.getA() * eq.getD() - eq.getB() * eq.getC());
         }
 
-        // Find min/max values
         double minX = Math.min(Math.min(x1, x2), Math.min(x3, x4));
         double maxX = Math.max(Math.max(x1, x2), Math.max(x3, x4));
         double minY = Math.min(Math.min(y1, y2), Math.min(y3, y4));
@@ -43,14 +41,13 @@ public class GraphPanel extends JPanel {
             maxY = Math.max(maxY, iy);
         }
 
-        //Add padding
         double rangeX = maxX - minX;
         double rangeY = maxY - minY;
 
-        if (rangeX == 0) rangeX = 2; // prevent divide-by-zero
+        if (rangeX == 0) rangeX = 2;
         if (rangeY == 0) rangeY = 2;
 
-        double paddingRatio = 0.2; // 20% visual margin around
+        double paddingRatio = 0.2;
         double paddingX = rangeX * paddingRatio;
         double paddingY = rangeY * paddingRatio;
 
@@ -62,7 +59,6 @@ public class GraphPanel extends JPanel {
         int width = getWidth();
         int height = getHeight();
 
-        // === Calculate scale and origin ===
         double scaleX = width / (maxX - minX);
         double scaleY = height / (maxY - minY);
         double scale = Math.min(scaleX, scaleY);
@@ -70,13 +66,11 @@ public class GraphPanel extends JPanel {
         double offsetX = -minX * scale;
         double offsetY = maxY * scale;
 
-        // === Helper for converting (x,y) to screen (sx,sy) ===
         java.util.function.BiFunction<Double, Double, Point> transform = (x, y) -> new Point(
                 (int) (x * scale + offsetX),
                 (int) (offsetY - y * scale)
         );
 
-        // Draw axes
         Point oX0 = transform.apply(minX, 0.0);
         Point oX1 = transform.apply(maxX, 0.0);
         Point oY0 = transform.apply(0.0, minY);
@@ -86,11 +80,9 @@ public class GraphPanel extends JPanel {
         g2.drawLine(oX0.x, oX0.y, oX1.x, oX1.y);
         g2.drawLine(oY0.x, oY0.y, oY1.x, oY1.y);
 
-        // === Draw extended lines ===
         drawExtendedLine(g2, x1, y1, x2, y2, scale, offsetX, offsetY, Color.BLUE);
         drawExtendedLine(g2, x3, y3, x4, y4, scale, offsetX, offsetY, Color.RED);
 
-        // === Draw intersection ===
         if (hasIntersection) {
             Point p = transform.apply(ix, iy);
             g2.setColor(Color.BLUE);
@@ -107,7 +99,6 @@ public class GraphPanel extends JPanel {
         double endX = (width - offsetX) / scale;
 
         if (x1 == x2) {
-            // Vertical line
             int px = (int) (x1 * scale + offsetX);
             g2.drawLine(px, 0, px, getHeight());
         } else {
